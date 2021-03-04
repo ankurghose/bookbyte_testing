@@ -18,3 +18,4 @@ time.sleep(4)
 searchresults = driver.find_element_by_id("ctl00_ContentPlaceHolder1_lbSearchedFor").text
 print(searchresults)
 driver.quit()
+#closes the driver
