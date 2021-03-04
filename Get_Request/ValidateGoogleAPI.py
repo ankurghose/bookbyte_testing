@@ -11,6 +11,7 @@ requests.get(url)
 
 # Send Get request
 response = requests.get(url)
+# will print out the response
 print(response)
 
 # print response body
