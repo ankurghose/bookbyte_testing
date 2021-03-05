@@ -8,12 +8,12 @@ driver = webdriver.Chrome("/Users/ankur/PycharmProjects/bookbyte_testing/Drivers
 driver.get("https://www.bookbyte.com/advancedsearch.aspx")
 
 driver.find_element_by_id("ctl00_mBody").click()
-time.sleep(4)
+#time.sleep(4)
 driver.find_element_by_name("ctl00$ContentPlaceHolder1$tbKeywords").send_keys("college")
-time.sleep(4)
+#time.sleep(4)
 #driver.find_elements_by_xpath("//input[@id='ctl00_ContentPlaceHolder1_tbKeywords']").send_keys("college")
 driver.find_element_by_id("ctl00_ContentPlaceHolder1_ibSearch").click()
-time.sleep(4)
+#time.sleep(4)
 
 searchresults = driver.find_element_by_id("ctl00_ContentPlaceHolder1_lbSearchedFor").text
 print(searchresults)
