@@ -19,7 +19,7 @@ class QA(unittest.TestCase):
      chrome_options = Options()
      chrome_options.add_argument("--headless")
 
-     cls.driver = webdriver.Chrome("/Users/ankur/PycharmProjects/bookbyte_testing/Drivers/chromedriver88")
+     cls.driver = webdriver.Chrome("../Drivers/chromedriver88")
     # (options=chrome_options)
 
 
@@ -34,7 +34,8 @@ class QA(unittest.TestCase):
       self.driver.find_element_by_id("ctl00_ContentPlaceHolder1_ibSearch").click()
       searchresults = self.driver.find_element_by_id("ctl00_ContentPlaceHolder1_lbSearchedFor").text
       print(searchresults)
-      self.assertEqual(searchresults,"collegei","college book was not found")
+      # will assert to show college books was found
+      self.assertEqual(searchresults,'college','college book was not found')
       self.driver.quit()
 
 
@@ -43,21 +44,26 @@ class QA(unittest.TestCase):
         self.driver.get("https://www.amazon.com/sp?seller=A2N51X1QYGFUPK")
         address = self.driver.find_elements_by_xpath("//span[contains(text(),'2800 Pringle Rd SE Suite 100')]")[0].text
         print(address)
-        address1 = ('2800 Pringle RD SE Suite 100')
+        address1 = '2800 Pringle Rd SE Suite 100'
         address2 = 'Wrong Address'
-        self.assertEqual(address,address1,"address is correct")
-        self.assertEqual(address,address2,"not the correct address")
+        if self.assertEqual(address1, address, "address is correct"):
+            print("found")
+        #self.assertEqual(address1,address,"address is correct")
+        else:
+         print("found the wrong address")
+        #self.assertEqual(address,address2,"not the correct address")
 
     def test_request_googleapi(self):
 
         # storing the variable in the url
         url = "https://www.googleapis.com/books/v1/volumes?q=isbn:0131103628&key=AIzaSyBY8LEYyV5982mLwBmFkJq5dbWtdwiO3X8"
         requests.get(url)
-
         # Send Get request
         response = requests.get(url)
         # will print out the response
         print(response)
-
         # print response body
         print(response.content)
+
+
+

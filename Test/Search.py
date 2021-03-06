@@ -3,7 +3,8 @@ from selenium.webdriver.common.by import By
 import time
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Chrome("/Users/ankur/PycharmProjects/bookbyte_testing/Drivers/chromedriver88")
+driver = webdriver.Chrome("../Drivers/chromedriver88")
+#/Users/ankur/PycharmProjects/bookbyte_testing/Drivers/chromedriver88
 #driver.set_pageload_timeout(10)
 driver.get("https://www.bookbyte.com/advancedsearch.aspx")
 
